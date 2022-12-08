@@ -28,3 +28,6 @@ Aqui falaremos de uma parte bem mais conceitual, trazendo mais qualidade para o 
 
     "Uma entidade é algo que possui uma continuidade em seu ciclo de vida e pode ser distinguida independente dos atributos que são importantes para a aplicação do usuário. Pode ser uma pessoa, cidade, carro, um ticket de loteria ou uma transação bancária."
     (Evans, Eric. Domain-Driven Design)
+
+# Comandos utilizados
+- `composer install`

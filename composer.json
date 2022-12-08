@@ -1,0 +1,14 @@
+{
+    "name": "taakahashi/php-ddd-patterns",
+    "authors": [
+        {
+            "name": "Gabriel Takahashi",
+            "email": "taakahashi@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "DDD\\": "src/DDD"
+        }
+    }
+}
