@@ -1,2 +1,3 @@
-# php-ddd-patterns
-Demonstrating tactical concepts and some DDD patterns with PHP
+# PHP: DDD Tactical and Patterns
+
+Demonstrating tactical concepts and some DDD patterns with PHP]
