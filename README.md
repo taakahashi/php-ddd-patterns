@@ -29,5 +29,12 @@ Aqui falaremos de uma parte bem mais conceitual, trazendo mais qualidade para o 
     "Uma entidade é algo que possui uma continuidade em seu ciclo de vida e pode ser distinguida independente dos atributos que são importantes para a aplicação do usuário. Pode ser uma pessoa, cidade, carro, um ticket de loteria ou uma transação bancária."
     (Evans, Eric. Domain-Driven Design)
 
+## Entidades Anêmicas
+Uma entidade é chamada de entidade anêmica, quando ela tem somente os atributos, getters e setters. Ela serve para armazenar seus dados e nada mais. É muito parecido com um DTO que não carrega regra de negócios.
+
+O mais próximo de um comportamento que ela tem, é alterar os valores dos próprios atributos.
+
+Essas entidades anêmicas são muito comuns quando se é trabalhado com ORM e um software orientado ao banco de dados.
+
 # Comandos utilizados
 - `composer install`

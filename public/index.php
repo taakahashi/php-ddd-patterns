@@ -1,3 +1,3 @@
 <?php
 
-echo "!!!";
+require_once '../vendor/autoload.php';
