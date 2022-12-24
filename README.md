@@ -36,5 +36,21 @@ O mais próximo de um comportamento que ela tem, é alterar os valores dos próp
 
 Essas entidades anêmicas são muito comuns quando se é trabalhado com ORM e um software orientado ao banco de dados.
 
+## Expressividade
+Precisamos deixar a entidade expressiva. Há até uma frase que diz para trabalharmos com "screaming architecture", que significa que a nossa arquitetura precisa "gritar", ou seja, precisamos bater o olho e entender o que cada parte faz.
+
+Um exemplo disso é que na nossa entidade, pode haver métodos como **desativar** onde dentro dele há somente um atributo recebendo false como num **set**. Porém, a grande diferença é que um método você bate o olho e sabe de cara o que ele faz.   
+
+## Consistência
+A nossa entidade precisa representar nosso elemento no estado atual. Isso significa que ela não pode estar desatualizada. É preciso garantir que 100% das vezes os dados da entidade estejam consistentes.
+
+Caso ela não esteja consistente, a entidade não consegue validar regras de negócio.
+
+## Autovalidação
+Uma regra de ouro para manter sua entidade consistente, é que uma entidade por padrão sempre deve ser autovalidar. Se uma entidade não se autovalidar e deixar essa responsabilidade para outro objeto ou rotina, ela corre o risco de em algum momento por um erro externo ficar em um estado incosistente.
+
+## Entidade vs ORM 
+
+
 # Comandos utilizados
 - `composer install`
