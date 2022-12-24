@@ -50,7 +50,11 @@ Caso ela não esteja consistente, a entidade não consegue validar regras de neg
 Uma regra de ouro para manter sua entidade consistente, é que uma entidade por padrão sempre deve ser autovalidar. Se uma entidade não se autovalidar e deixar essa responsabilidade para outro objeto ou rotina, ela corre o risco de em algum momento por um erro externo ficar em um estado incosistente.
 
 ## Entidade vs ORM 
+Para algumas pessoas, entidade é somente aquela classe que faz a persistência no banco de dados com seus *gets/sets*. 
 
+Por isso é necessário entender a diferença e seus conteitos. São duas entidades diferentes e uma não precisa anular o uso da outra. São arquivos com nome iguais que são independentes. 
+
+Uma entidade é utilizada para persistência de dados e a outra entidade carrega sua regra de negócio. São contextos diferentes.
 
 # Comandos utilizados
 - `composer install`
