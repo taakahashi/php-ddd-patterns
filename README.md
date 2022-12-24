@@ -56,5 +56,20 @@ Por isso é necessário entender a diferença e seus conteitos. São duas entida
 
 Uma entidade é utilizada para persistência de dados e a outra entidade carrega sua regra de negócio. São contextos diferentes.
 
+## Value Objects
+Em muitos sistemas os atributos das classes são tratados com tipos primitivos. Eles são, inteiros, strings, etc. <br> Um nome, uma rua, um CPF, tudo acaba sendo string, por exemplo.
+
+DDD é como você resolve um problema de negócio, é como você representa a sua aplicação. E para representar de uma forma rica e expressiva, utilizamos os **Objetos de Valores** em nossos atributos ao invés de tipos genéricos.
+
+    "Quando você se preocupa apenas com os atributos de um elemento de um Model, classifique isso como um Value Object."
+    "Trate um Value Object como imutável."
+    
+    (Evans, Eric. Domain-Driven Design)
+
+O endereço por exemplo pode ser composto por: rua, número, cidade, estado, país e CEP. Na maioria dos casos em que você precisa alterar o endereço, um atributo acaba afetando o outro. Por exemplo: se você muda de estado, as outras informações sobre o seu endereço também irão mudar.
+
+Em outros casos, você pode somente mudar de rua/número e as outras informações continuam a mesma. Porém, não foi só o número da casa que você mudou, você trocou de endereço. Isso significa ser imutável, você agora tem um novo endereço e não muda somente uma informação, você dispensou o antigo endereço e agora tem um elemento novo. O nosso endereço é um conjunto de dados que representa algo para o nosso sistema. 
+
+
 # Comandos utilizados
 - `composer install`

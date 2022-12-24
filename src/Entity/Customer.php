@@ -2,15 +2,15 @@
 
 namespace DDD\Entity;
 
-use Exception;
+use InvalidArgumentException;
 
 final class Customer
 {
     public function __construct(
-        protected string $id,
-        protected string $name = "",
-        protected string $address = "",
-        protected bool $status = false
+        private string $id,
+        private string $name,
+        private Address $address,
+        private bool $status = false
     )
     {
         $this->validate();
@@ -18,9 +18,9 @@ final class Customer
 
     private function validate(): void
     {
-        if(strlen($this->id) === 0) throw new Exception("ID is required");
+        if(empty($this->id)) throw new InvalidArgumentException("ID is required");
 
-        if(strlen($this->name) === 0) throw new Exception("Name is required");
+        if(empty($this->name)) throw new InvalidArgumentException("Name is required");
     }
 
     private function changeName(string $name): void
@@ -31,7 +31,7 @@ final class Customer
 
     private function activate(): void
     {
-        if(strlen($this->address) === 0) throw new Exception("Address is mandatory to activate a Customer");
+        if(empty($this->address)) throw new InvalidArgumentException("Address is mandatory to activate a Customer");
 
         $this->status = true;
     }
