@@ -23,20 +23,20 @@ final class Customer
         if(empty($this->name)) throw new InvalidArgumentException("Name is required");
     }
 
-    private function changeName(string $name): void
+    public function changeName(string $name): void
     {
         $this->name = $name;
         $this->validate();
     }
 
-    private function activate(): void
+    public function activate(): void
     {
         if(empty($this->address)) throw new InvalidArgumentException("Address is mandatory to activate a Customer");
 
         $this->status = true;
     }
 
-    private function desactivate(): void
+    public function desactivate(): void
     {
         $this->status = false;
     }

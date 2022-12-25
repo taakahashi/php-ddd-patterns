@@ -52,10 +52,11 @@ Uma regra de ouro para manter sua entidade consistente, é que uma entidade por 
 ## Entidade vs ORM 
 Para algumas pessoas, entidade é somente aquela classe que faz a persistência no banco de dados com seus *gets/sets*. 
 
-Por isso é necessário entender a diferença e seus conteitos. São duas entidades diferentes e uma não precisa anular o uso da outra. São arquivos com nome iguais que são independentes. 
+Por isso é necessário entender a diferença e seus conceitos. São duas entidades diferentes e uma não precisa anular o uso da outra. São arquivos com nome iguais que são independentes. 
 
-Uma entidade é utilizada para persistência de dados e a outra entidade carrega sua regra de negócio. São contextos diferentes.
-
+A entidade do ORM tem o contexto de guardar dados, é focada em persistência.
+<br>
+A entidade por si só tem o contexto de atender o negócio, é focada nas regras de negócio.
 ## Value Objects
 Em muitos sistemas os atributos das classes são tratados com tipos primitivos. Eles são, inteiros, strings, etc. <br> Um nome, uma rua, um CPF, tudo acaba sendo string, por exemplo.
 
@@ -66,10 +67,29 @@ DDD é como você resolve um problema de negócio, é como você representa a su
     
     (Evans, Eric. Domain-Driven Design)
 
-O endereço por exemplo pode ser composto por: rua, número, cidade, estado, país e CEP. Na maioria dos casos em que você precisa alterar o endereço, um atributo acaba afetando o outro. Por exemplo: se você muda de estado, as outras informações sobre o seu endereço também irão mudar.
+Por exemplo, CEP e CPF sendo “string”, sem máscara e fazendo esse tratamento depois. Se nosso CEP e CPF forem do mesmo tipo primitivo, eles são praticamente a mesma coisa.
 
-Em outros casos, você pode somente mudar de rua/número e as outras informações continuam a mesma. Porém, não foi só o número da casa que você mudou, você trocou de endereço. Isso significa ser imutável, você agora tem um novo endereço e não muda somente uma informação, você dispensou o antigo endereço e agora tem um elemento novo. O nosso endereço é um conjunto de dados que representa algo para o nosso sistema. 
+Seguindo nessa linha, nossa modelagem acaba sendo reduzida, fazendo com que fique “pobre”.
 
+Uncle Bob gosta muito de dizer “screaming architecture”, ou seja, a arquitetura tem que estar gritando a forma como as coisas devem ser. Muitas vezes o nosso software não expressa o que ele realmente é ou faz. Expressa somente um conjunto de variáveis que tem um tipo.
 
+Para resolver isso, ajudando a modelar o domínio de forma “rica” podemos utilizar o DDD para resolver o problema de negócio e enxergar a aplicação. Precisamos modelar o coração da forma mais “rica” possível, de uma forma que ela expresse o que ela é com as suas características e não mais com características genéricas. O que nos ajuda em tudo isso, são os Value Objects.
+Eles ajudam a modelar o domínio de um sistema de negócio de forma mais precisa, expressiva e consistente.
+
+## Aggregates
+    “Um agregado é um conjunto de objetos associados que tratamos como uma unidade para propósito de mudança de dados.”
+    (Evans, Eric. Domain-Driven Design)
+
+Vamos imaginar um sistema com 4 elementos: cliente (entidade), endereço (value object), pedido (entidade) e item (entidade).
+
+Cliente precisa ter um endereço e pode ou não ter N pedidos.
+<br>
+Pedido precisa ter N itens e precisa ter um cliente.
+
+Sendo assim, sabemos que temos 2 contextos. Um de cliente e um de pedido.
+<br>
+Esses contextos, chamamos de agregados pois ele é um conjunto de objetos que são tratados como uma única unidade de trabalho e que possuem uma identidade própria. Ele delimita o contexto de um sistema de negócio ao definir as regras e restrições que regem o comportamento das entidades e serviços do sistema.
+
+Um agregado é composto por um objeto principal, conhecido como raiz de agregado, e por vários objetos associados a ele, conhecidos como entidades dependentes. A raiz de agregado é responsável por gerenciar as operações de negócios e as alterações de estado do agregado, enquanto as entidades dependentes são responsáveis por armazenar os dados do negócio.
 # Comandos utilizados
 - `composer install`
