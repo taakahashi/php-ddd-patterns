@@ -1,2 +1,5 @@
-vendor/
 .idea/
+vendor/
+report/
+
+.phpunit.result.cache

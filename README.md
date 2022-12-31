@@ -91,5 +91,20 @@ Sendo assim, sabemos que temos 2 contextos. Um de cliente e um de pedido.
 Esses contextos, chamamos de agregados pois ele é um conjunto de objetos que são tratados como uma única unidade de trabalho e que possuem uma identidade própria. Ele delimita o contexto de um sistema de negócio ao definir as regras e restrições que regem o comportamento das entidades e serviços do sistema.
 
 Um agregado é composto por um objeto principal, conhecido como raiz de agregado, e por vários objetos associados a ele, conhecidos como entidades dependentes. A raiz de agregado é responsável por gerenciar as operações de negócios e as alterações de estado do agregado, enquanto as entidades dependentes são responsáveis por armazenar os dados do negócio.
+
 # Comandos utilizados
 - `composer install`
+- `composer require --dev phpunit/phpunit ^9`
+- `composer require --dev php-code-coverage`
+
+
+- `./vendor/bin/phpunit --generate-configuration`
+- `./vendor/bin/phpunit tests --colors --coverage-html ./report`
+
+
+    Configuração XDebug: 
+
+    - Instalar XDebug
+        - apt install php8.1-xdebug
+    - Habilitar XDebug no php.ini
+        - xdebug.mode=develop,debug,coverage

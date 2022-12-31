@@ -9,7 +9,7 @@ final class Customer
     public function __construct(
         private string $id,
         private string $name,
-        private Address $address,
+        private ?Address $address = null,
         private bool $status = false
     )
     {
@@ -36,9 +36,18 @@ final class Customer
         $this->status = true;
     }
 
-    public function desactivate(): void
+    public function deactivate(): void
     {
         $this->status = false;
     }
 
+    public function getName(): string
+    {
+        return $this->name;
+    }
+
+    public function isActive(): bool
+    {
+        return $this->status;
+    }
 }
