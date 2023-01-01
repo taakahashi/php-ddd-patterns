@@ -1,5 +1,3 @@
-container=app
-
 build:
 	docker-compose rm -vsf
 	docker-compose down -v --remove-orphans
@@ -11,6 +9,9 @@ up:
 
 down:
 	docker-compose down
+
+stop:
+	docker-compose stop
 
 exec:
 	docker-compose exec app bash

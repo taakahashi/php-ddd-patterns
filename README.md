@@ -98,13 +98,4 @@ Um agregado é composto por um objeto principal, conhecido como raiz de agregado
 - `composer require --dev php-code-coverage`
 
 
-- `./vendor/bin/phpunit --generate-configuration`
-- `./vendor/bin/phpunit tests --colors --coverage-html ./report`
-
-
-    Configuração XDebug: 
-
-    - Instalar XDebug
-        - apt install php8.1-xdebug
-    - Habilitar XDebug no php.ini
-        - xdebug.mode=develop,debug,coverage
+- `./vendor/phpunit/phpunit/phpunit --generate-configuration`
