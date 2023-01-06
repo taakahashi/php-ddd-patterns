@@ -16,5 +16,4 @@ $item2 = new Item('2', 'Produto 2', 20);
 
 $order = new Order('1', '123', [$item1, $item2]);
 
-//echo phpinfo();
-
+//echo "TOTAL: " . $order->total . PHP_EOL;
