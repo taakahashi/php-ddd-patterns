@@ -33,6 +33,6 @@ final class Order
 
     private function total(): float
     {
-        return array_reduce($this->items, fn($acc, $item) => $acc + $item->price, 0);
+        return array_reduce($this->items, fn($acc, $item) => $acc + $item->total(), 0);
     }
 }

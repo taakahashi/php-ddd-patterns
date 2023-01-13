@@ -17,7 +17,7 @@ class OrderTest extends TestCase
         self::expectException(InvalidArgumentException::class);
         self::expectExceptionMessage("ID is required");
 
-        new Order("", "123", [new Item("1", "Produto 1", 1)]);
+        new Order("", "123", [new Item("1", "9", "Produto 1", 100, 1)]);
     }
 
     public function testShouldThrowErrorWhenCustomerIdIsEmpty()
@@ -25,7 +25,7 @@ class OrderTest extends TestCase
         self::expectException(InvalidArgumentException::class);
         self::expectExceptionMessage("CustomerID is required");
 
-        new Order("123", "", [new Item("1", "Produto 1", 1)]);
+        new Order("123", "", [new Item("1", "9", "Produto 1", 100, 1)]);
     }
 
     public function testShouldThrowErrorWhenItemIsEmpty()
@@ -38,10 +38,18 @@ class OrderTest extends TestCase
 
     public function testShouldCalculateTotal()
     {
-        $item1 = new Item("1", "Produto 1", 10);
-        $item2 = new Item("2", "Produto 2", 20);
+        $item1 = new Item("1", "9", "Produto 1", 10, 2);
+        $item2 = new Item("1", "9", "Produto 1", 20, 2);
         $order = new Order("123", "123", [$item1, $item2]);
 
-        self::assertEquals(30, $order->total);
+        self::assertEquals(60, $order->total);
+    }
+
+    public function testShouldThrowErrorIfTheItemQuantityIsLessOrEqualZero()
+    {
+        self::expectException(InvalidArgumentException::class);
+        self::expectExceptionMessage("Quantity must be greater than zero");
+
+        new Item("1", "9", "Produto 1", 10, 0);
     }
 }
