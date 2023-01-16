@@ -1,4 +1,4 @@
-**# PHP: DDD Tactical and Patterns
+# PHP: DDD Tático e Patterns
 
 ## Introdução
 Imagine que você precisa começar um projeto complexo. A escolha de utilizar DDD significa que você não deve começar escrevendo código sem antes planejar e estruturar o projeto.
