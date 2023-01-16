@@ -1,13 +1,12 @@
-# PHP: DDD Tactical and Patterns
+**# PHP: DDD Tactical and Patterns
 
 ## Introdução
-Vamos imaginar que você precisa desenvolver um novo projeto e ele será um enorme desafio. Nesse momento você decidiu trabalhar com DDD e com isso, você sabe logo de cara que não vai sair colocando a mão no código.
+Imagine que você precisa começar um projeto complexo. A escolha de utilizar DDD significa que você não deve começar escrevendo código sem antes planejar e estruturar o projeto.
 
-Você vai entender a complexidade do software, mapear o domínio, criar uma linguagem universal e os contextos delimitados. Conseguir separar o espaço do problema e da solução, para só depois dos elementos estratégicos definidos, você vai para a parte tática.
+É preciso entender a complexidade do software, mapear o domínio, estabelecer uma linguagem universal e os seus contextos delimitados. Dividir o problema e a solução, antes de estabelecer os elementos estratégicos e prosseguir com a abordagem tática.
 
 ## Elementos Táticos
-Este é um momento antes de por a mão no código.
-
+Este é um momento antes de pôr a mão no código, é importante se preparar. 
 Antes de chegar aqui, já tivemos um olhar estratégico para o software. 
 
 Entendemos o problema e a solução. Criamos um mapa de contexto, definimos diversos contextos delimitados (criando subdominios) e cada tipo deste contexto tem um problema a ser resolvido.
@@ -17,9 +16,9 @@ Entendemos o problema e a solução. Criamos um mapa de contexto, definimos dive
      Vamos colocar uma lupa em um contexto delimitado e ver como as coisas funcionam.
 
 ## Entidades
-Um dos principais elementos que estamos acostumados a falar sempre, são as entidades. Mas não são as entidades que são comumente faladas, como aquelas que referenciam uma tabela do banco de dados e que tenham seus getters e setters.
+Falamos frequentemente sobre entidades, mas não se trata das entidades comuns, como aquelas que são mapeadas para tabelas do banco de dados e possuem métodos de acesso (getters e setters).
 
-Aqui falaremos de uma parte bem mais conceitual, trazendo mais qualidade para o software com coesão e estável, garantindo que o coração da aplicação fique robusto.
+Vamos discutir uma parte mais conceitual que aumenta a qualidade do software, promovendo coesão e estabilidade, garantindo que o coração da aplicação seja robusto.
 
     O que é uma entidade?
 
@@ -30,29 +29,28 @@ Aqui falaremos de uma parte bem mais conceitual, trazendo mais qualidade para o 
     (Evans, Eric. Domain-Driven Design)
 
 ## Entidades Anêmicas
-Uma entidade é chamada de entidade anêmica, quando ela tem somente os atributos, getters e setters. Ela serve para armazenar seus dados e nada mais. É muito parecido com um DTO que não carrega regra de negócios.
+Uma entidade é chamada entidade anêmica, quando ela tem somente os atributos, getters e setters. A função dela é armazenar dados e nada mais, semelhante a um DTO que não contém regras de negócios.
 
-O mais próximo de um comportamento que ela tem, é alterar os valores dos próprios atributos.
-
-Essas entidades anêmicas são muito comuns quando se é trabalhado com ORM e um software orientado ao banco de dados.
+O mais próximo de um comportamento que ela tem é alterar os valores dos próprios atributos.
+Entidades anêmicas são frequentes em projetos que utilizam ORM e softwares orientados ao banco de dados.
 
 ## Expressividade
-Precisamos deixar a entidade expressiva. Há até uma frase que diz para trabalharmos com "screaming architecture", que significa que a nossa arquitetura precisa "gritar", ou seja, precisamos bater o olho e entender o que cada parte faz.
+É necessário tornar a entidade expressiva. A arquitetura deve ser clara e intuitiva sendo possível entender o que cada parte faz apenas olhando para ela.
 
-Um exemplo disso é que na nossa entidade, pode haver métodos como **desativar** onde dentro dele há somente um atributo recebendo false como num **set**. Porém, a grande diferença é que um método você bate o olho e sabe de cara o que ele faz.   
+Um exemplo disso é que na nossa entidade, pode haver métodos como **desativar** onde dentro dele há somente um atributo recebendo false semelhante a um **set**. Porém, a grande diferença é que um método você bate o olho e sabe de cara o que ele faz.   
 
 ## Consistência
-A nossa entidade precisa representar nosso elemento no estado atual. Isso significa que ela não pode estar desatualizada. É preciso garantir que 100% das vezes os dados da entidade estejam consistentes.
+A nossa entidade precisa representar o nosso elemento no estado atual. Isso significa que ela não pode estar desatualizada. É preciso garantir que 100% das vezes os dados da entidade estejam consistentes.
 
 Caso ela não esteja consistente, a entidade não consegue validar regras de negócio.
 
 ## Autovalidação
-Uma regra de ouro para manter sua entidade consistente, é que uma entidade por padrão sempre deve ser autovalidar. Se uma entidade não se autovalidar e deixar essa responsabilidade para outro objeto ou rotina, ela corre o risco de em algum momento por um erro externo ficar em um estado incosistente.
+Uma regra de ouro para manter a sua entidade consistente, é que uma entidade por padrão sempre deve ser autovalidar. Se uma entidade não se autovalidar e deixar essa responsabilidade para outro objeto ou rotina, ela corre o risco de em algum momento por um erro externo ficar em um estado incosistente.
 
 ## Entidade vs ORM 
-Para algumas pessoas, entidade é somente aquela classe que faz a persistência no banco de dados com seus *gets/sets*. 
+Para algumas pessoas, entidade é somente aquela classe que faz a persistência no banco de dados com os seus *gets/sets*. 
 
-Por isso é necessário entender a diferença e seus conceitos. São duas entidades diferentes e uma não precisa anular o uso da outra. São arquivos com nome iguais que são independentes. 
+Por isso é necessário entender a diferença e os seus conceitos. São duas entidades diferentes e uma não precisa anular o uso da outra. São arquivos com nome iguais que são independentes. 
 
 A entidade do ORM tem o contexto de guardar dados, é focada em persistência.
 <br>
@@ -60,18 +58,17 @@ A entidade por si só tem o contexto de atender o negócio, é focada nas regras
 ## Value Objects
 Em muitos sistemas os atributos das classes são tratados com tipos primitivos. Eles são, inteiros, strings, etc. <br> Um nome, uma rua, um CPF, tudo acaba sendo string, por exemplo.
 
-DDD é como você resolve um problema de negócio, é como você representa a sua aplicação. E para representar de uma forma rica e expressiva, utilizamos os **Objetos de Valores** em nossos atributos ao invés de tipos genéricos.
+DDD é como resolver um problema de negócio, é como representar a sua aplicação. E para representar de uma forma rica e expressiva, utilizamos os **Objetos de Valores** nos nossos atributos ao invés de tipos genéricos.
 
     "Quando você se preocupa apenas com os atributos de um elemento de um Model, classifique isso como um Value Object."
     "Trate um Value Object como imutável."
-    
     (Evans, Eric. Domain-Driven Design)
 
 Por exemplo, CEP e CPF sendo “string”, sem máscara e fazendo esse tratamento depois. Se nosso CEP e CPF forem do mesmo tipo primitivo, eles são praticamente a mesma coisa.
 
-Seguindo nessa linha, nossa modelagem acaba sendo reduzida, fazendo com que fique “pobre”.
+Seguindo nessa linha, a nossa modelagem acaba sendo reduzida, fazendo com que fique “pobre”.
 
-Uncle Bob gosta muito de dizer “screaming architecture”, ou seja, a arquitetura tem que estar gritando a forma como as coisas devem ser. Muitas vezes o nosso software não expressa o que ele realmente é ou faz. Expressa somente um conjunto de variáveis que tem um tipo.
+Uncle Bob gosta muito de dizer “screaming architecture”, ou seja, a arquitetura tem que estar gritando como as coisas devem ser. Muitas vezes o nosso software não expressa o que ele realmente é ou faz. Expressa somente um conjunto de variáveis que tem um tipo.
 
 Para resolver isso, ajudando a modelar o domínio de forma “rica” podemos utilizar o DDD para resolver o problema de negócio e enxergar a aplicação. Precisamos modelar o coração da forma mais “rica” possível, de uma forma que ela expresse o que ela é com as suas características e não mais com características genéricas. O que nos ajuda em tudo isso, são os Value Objects.
 Eles ajudam a modelar o domínio de um sistema de negócio de forma mais precisa, expressiva e consistente.
@@ -88,9 +85,32 @@ Pedido precisa ter N itens e precisa ter um cliente.
 
 Sendo assim, sabemos que temos 2 contextos. Um de cliente e um de pedido.
 <br>
-Esses contextos, chamamos de agregados pois ele é um conjunto de objetos que são tratados como uma única unidade de trabalho e que possuem uma identidade própria. Ele delimita o contexto de um sistema de negócio ao definir as regras e restrições que regem o comportamento das entidades e serviços do sistema.
+Chamamos esses contextos de agregados, pois são conjuntos de objetos tratados como uma unidade única e possuem uma identidade própria. Eles delimitam o contexto de negócios estabelecendo as regras e restrições que regulam o comportamento das entidades e serviços do sistema.
 
-Um agregado é composto por um objeto principal, conhecido como raiz de agregado, e por vários objetos associados a ele, conhecidos como entidades dependentes. A raiz de agregado é responsável por gerenciar as operações de negócios e as alterações de estado do agregado, enquanto as entidades dependentes são responsáveis por armazenar os dados do negócio.
+Um agregado é composto por um objeto principal, chamado raiz de agregado, e vários objetos associados a ele, conhecidos como entidades dependentes. A raiz de agregado gerencia as operações de negócios e as alterações de estado do agregado, enquanto as entidades dependentes armazenam os dados do negócio.
+
+## Domain Services
+Não confunda Domain Services com os serviços comuns, como Web Service, Services SOAP ou REST. Se é preciso enviar um email, criamos um serviço na infra. O que será discutido a seguir não tem relação com esses usos comuns
+Não confunda Domain Services com a palavra Service que usamos pra tudo como Web Service, Services SOAP ou REST. Se eu preciso enviar um email, eu tenho na infra um service para email. O que falaremos a seguir não tem relação ao uso comumente utilizados.
+
+    "Um serviço de domínio é uma operação sem estado que cumpre uma tarefa específica do domínio. Muitas vezes, a melhor indicação de que você deve criar um Serviço no modelo de domínio é quando a operação que você precisa executar parece não se encaixar como um método em um Agregado ou um Objeto de Valor."
+    (Vernon, Vaughn. Implementing Domain-Driven Design)
+
+    "Quando um processo ou transformação significativa no domínio não for uma responsabilidade natural de uma Entidade ou Objeto de Valor, adicione uma operação ao modelo como uma interface autônoma declarada como um Serviço. Defina a interface baseada na linguagem do modelo de domínio e certifique-se de que o nome da operação faça parte da Linguagem Ubíqua. Torne o Serviço sem estado."
+    (Evans, Eric. Domain-Driven Design)
+
+Os serviços não possuem estado. Se for necessário realizar uma operação e não for possível fazer dentro da própria entidade, devido a necessidade de outras entidades, outras operações ou acesso externo, provavelmente será necessário utilizar um serviço de domínio.
+
+Lembre-se de que um serviço de domínio é executado na camada de domínio, nas regras de negócio. Não estamos falando de infraestrutura ou de ações como envio de emails. Estamos tratando de regras de negócio, como temos visto até agora.
+
+Abaixo, alguns exemplos possíveis de situações onde pode ser necessário utilizar um serviço de domínio:
+- Uma ação realizada por uma entidade pode afetar outras entidades?
+- Como realizar operações em massa?
+- Como calcular algo cujos dados estão em mais de uma entidade?
+
+Para lembrar:
+- Se houver muitos Domain Services no projeto, isso pode indicar que os agregados estão anêmicos;
+- Os Domain Services são Stateless, ou seja, eles não mantêm estado, então, se uma função é executada, ela coleta alguns dados de entrada e retorna somente um valor final, sem armazenar esses dados no domínio;
 
 # Comandos utilizados
 - `composer install`
