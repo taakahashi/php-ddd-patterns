@@ -8,10 +8,6 @@ use PHPUnit\Framework\TestCase;
 
 class AddressTest extends TestCase
 {
-    //$street
-    //$number
-    //$city
-    //$zipCode
     public function testShouldThrowErrorWhenStreetEmpty()
     {
         self::expectException(InvalidArgumentException::class);
