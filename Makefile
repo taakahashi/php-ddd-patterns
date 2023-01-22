@@ -21,6 +21,3 @@ test:
 
 test-coverage:
 	./vendor/phpunit/phpunit/phpunit tests --colors --coverage-html ./report
-
-test-dox:
-	./vendor/phpunit/phpunit/phpunit tests --colors --testdox

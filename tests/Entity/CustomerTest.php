@@ -65,4 +65,16 @@ class CustomerTest extends TestCase
 
         $customer->activate();
     }
+
+    public function testShouldAddRewardPoints()
+    {
+        $customer = new Customer("C1", "Customer 1");
+        self::assertEquals(0, $customer->getRewardPoints());
+
+        $customer->addRewardPoints(10);
+        self::assertEquals(10, $customer->getRewardPoints());
+
+        $customer->addRewardPoints(10);
+        self::assertEquals(20, $customer->getRewardPoints());
+    }
 }
