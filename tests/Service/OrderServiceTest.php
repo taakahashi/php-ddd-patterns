@@ -2,6 +2,7 @@
 
 namespace Service;
 
+use DDD\Entity\Customer;
 use DDD\Entity\Item;
 use DDD\Entity\Order;
 use DDD\Service\OrderService;
@@ -20,5 +21,16 @@ class OrderServiceTest extends TestCase
         $total = OrderService::total([$order1, $order2]);
 
         self::assertEquals(500, $total);
+    }
+
+    public function testShouldPlaceAnOrder()
+    {
+        $customer = new Customer("C1", "Customer 1");
+        $item = new Item("I1", "P1", "Item 1", 10, 1);
+
+        $order = OrderService::placeOrder($customer, [$item]);
+
+        self::assertEquals(5, $customer->getRewardPoints());
+        self::assertEquals(10, $order->total);
     }
 }

@@ -10,7 +10,8 @@ final class Customer
         private string $id,
         private string $name,
         private ?Address $address = null,
-        private bool $status = false
+        private bool $status = false,
+        private float $rewardPoints = 0
     )
     {
         $this->validate();
@@ -36,14 +37,29 @@ final class Customer
         $this->status = true;
     }
 
+    public function addRewardPoints(float $points): void
+    {
+        $this->rewardPoints += $points;
+    }
+
     public function deactivate(): void
     {
         $this->status = false;
     }
 
+    public function getId(): string
+    {
+        return $this->id;
+    }
+
     public function getName(): string
     {
         return $this->name;
+    }
+
+    public function getRewardPoints(): float
+    {
+        return $this->rewardPoints;
     }
 
     public function isActive(): bool
