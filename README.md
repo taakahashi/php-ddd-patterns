@@ -11,22 +11,20 @@ Antes de chegar aqui, já tivemos um olhar estratégico para o software.
 
 Entendemos o problema e a solução. Criamos um mapa de contexto, definimos diversos contextos delimitados (criando subdominios) e cada tipo deste contexto tem um problema a ser resolvido.
 
-     O que é o DDD tático?
-     R: Quando estamos falando sobre DDD e precisamos olhar mais a fundo um contexto delimitado, nós precisamos ser capazes de modelar de forma mais assertiva os seus principais componentes, comportamentos e individualidades, bem como suas relações.
-     Vamos colocar uma lupa em um contexto delimitado e ver como as coisas funcionam.
+>O que é o DDD tático? <br>
+R: Quando estamos falando sobre DDD e precisamos olhar mais a fundo um contexto delimitado, nós precisamos ser capazes de modelar de forma mais assertiva os seus principais componentes, comportamentos e individualidades, bem como suas relações. Vamos colocar uma lupa em um contexto delimitado e ver como as coisas funcionam.
 
 ## Entidades
 Falamos frequentemente sobre entidades, mas não se trata das entidades comuns, como aquelas que são mapeadas para tabelas do banco de dados e possuem métodos de acesso (getters e setters).
 
 Vamos discutir uma parte mais conceitual que aumenta a qualidade do software, promovendo coesão e estabilidade, garantindo que o coração da aplicação seja robusto.
 
-    O que é uma entidade?
-
-    "Uma entidade é algo único que é capaz de ser alterado de forma contínua durante um longo período de tempo."
-    (Vernon, Vaughn. Implementing Domain-Driven Design)
-
-    "Uma entidade é algo que possui uma continuidade em seu ciclo de vida e pode ser distinguida independente dos atributos que são importantes para a aplicação do usuário. Pode ser uma pessoa, cidade, carro, um ticket de loteria ou uma transação bancária."
-    (Evans, Eric. Domain-Driven Design)
+>O que é uma entidade? <br>
+"Uma entidade é algo único que é capaz de ser alterado de forma contínua durante um longo período de tempo." <br>
+(Vernon, Vaughn. Implementing Domain-Driven Design) 
+<br><br>
+> "Uma entidade é algo que possui uma continuidade em seu ciclo de vida e pode ser distinguida independente dos atributos que são importantes para a aplicação do usuário. Pode ser uma pessoa, cidade, carro, um ticket de loteria ou uma transação bancária." <br>
+(Evans, Eric. Domain-Driven Design)
 
 ## Entidades Anêmicas
 Uma entidade é chamada entidade anêmica, quando ela tem somente os atributos, getters e setters. A função dela é armazenar dados e nada mais, semelhante a um DTO que não contém regras de negócios.
@@ -60,9 +58,8 @@ Em muitos sistemas os atributos das classes são tratados com tipos primitivos. 
 
 DDD é como resolver um problema de negócio, é como representar a sua aplicação. E para representar de uma forma rica e expressiva, utilizamos os **Objetos de Valores** nos nossos atributos ao invés de tipos genéricos.
 
-    "Quando você se preocupa apenas com os atributos de um elemento de um Model, classifique isso como um Value Object."
-    "Trate um Value Object como imutável."
-    (Evans, Eric. Domain-Driven Design)
+>"Quando você se preocupa apenas com os atributos de um elemento de um Model, classifique isso como um Value Object. Trate um Value Object como imutável." <br>
+(Evans, Eric. Domain-Driven Design)
 
 Por exemplo, CEP e CPF sendo “string”, sem máscara e fazendo esse tratamento depois. Se nosso CEP e CPF forem do mesmo tipo primitivo, eles são praticamente a mesma coisa.
 
@@ -74,8 +71,8 @@ Para resolver isso, ajudando a modelar o domínio de forma “rica” podemos ut
 Eles ajudam a modelar o domínio de um sistema de negócio de forma mais precisa, expressiva e consistente.
 
 ## Aggregates
-    “Um agregado é um conjunto de objetos associados que tratamos como uma unidade para propósito de mudança de dados.”
-    (Evans, Eric. Domain-Driven Design)
+>“Um agregado é um conjunto de objetos associados que tratamos como uma unidade para propósito de mudança de dados. <br>
+(Evans, Eric. Domain-Driven Design)
 
 Vamos imaginar um sistema com 4 elementos: cliente (entidade), endereço (value object), pedido (entidade) e item (entidade).
 
@@ -91,13 +88,12 @@ Um agregado é composto por um objeto principal, chamado raiz de agregado, e vá
 
 ## Domain Services
 Não confunda Domain Services com os serviços comuns, como Web Service, Services SOAP ou REST. Se é preciso enviar um email, criamos um serviço na infra. O que será discutido a seguir não tem relação com esses usos comuns
-Não confunda Domain Services com a palavra Service que usamos pra tudo como Web Service, Services SOAP ou REST. Se eu preciso enviar um email, eu tenho na infra um service para email. O que falaremos a seguir não tem relação ao uso comumente utilizados.
+    
+>"Um serviço de domínio é uma operação sem estado que cumpre uma tarefa específica do domínio. Muitas vezes, a melhor indicação de que você deve criar um Serviço no modelo de domínio é quando a operação que você precisa executar parece não se encaixar como um método em um Agregado ou um Objeto de Valor." <br>
+(Vernon, Vaughn. Implementing Domain-Driven Design)
 
-    "Um serviço de domínio é uma operação sem estado que cumpre uma tarefa específica do domínio. Muitas vezes, a melhor indicação de que você deve criar um Serviço no modelo de domínio é quando a operação que você precisa executar parece não se encaixar como um método em um Agregado ou um Objeto de Valor."
-    (Vernon, Vaughn. Implementing Domain-Driven Design)
-
-    "Quando um processo ou transformação significativa no domínio não for uma responsabilidade natural de uma Entidade ou Objeto de Valor, adicione uma operação ao modelo como uma interface autônoma declarada como um Serviço. Defina a interface baseada na linguagem do modelo de domínio e certifique-se de que o nome da operação faça parte da Linguagem Ubíqua. Torne o Serviço sem estado."
-    (Evans, Eric. Domain-Driven Design)
+>"Quando um processo ou transformação significativa no domínio não for uma responsabilidade natural de uma Entidade ou Objeto de Valor, adicione uma operação ao modelo como uma interface autônoma declarada como um Serviço. Defina a interface baseada na linguagem do modelo de domínio e certifique-se de que o nome da operação faça parte da Linguagem Ubíqua. Torne o Serviço sem estado." <br>
+(Evans, Eric. Domain-Driven Design)
 
 Os serviços não possuem estado. Se for necessário realizar uma operação e não for possível fazer dentro da própria entidade, devido a necessidade de outras entidades, outras operações ou acesso externo, provavelmente será necessário utilizar um serviço de domínio.
 
@@ -111,6 +107,17 @@ Abaixo, alguns exemplos possíveis de situações onde pode ser necessário util
 Para lembrar:
 - Se houver muitos Domain Services no projeto, isso pode indicar que os agregados estão anêmicos;
 - Os Domain Services são Stateless, ou seja, eles não mantêm estado, então, se uma função é executada, ela coleta alguns dados de entrada e retorna somente um valor final, sem armazenar esses dados no domínio;
+
+## Repositories
+> Um repositório comumente se refere a um local de armazenamento, geralmente considerado um local de segurança ou preservação dos itens nele armazenados. Quando você armazena algo em um repositório e depois retorna para recuperá-lo, você espera que ele esteja no mesmo estado que estava quando você o colocou lá. Em algum momento, você pode optar por remover o item armazenado do repositório." <br>
+(Vernon, Vaughn. Implementing Domain-Driven Design)
+
+Quando trabalhamos com repositórios, usamos agregados para persistir os dados no banco de dados. Esses agregados não precisam ser necessariamente mapeados para uma tabela específica, mas sim serem objetos que precisam ser persistidos. No entanto, esses agregados podem conter várias entidades e objetos de valor. Se você precisa trabalhar com essas informações 1:1 e representar uma tabela específica, existem outros padrões, como o DAO, que se adequam melhor a essa necessidade.
+
+> Esses objetos semelhantes a coleções são sobre persistência. Todo tipo **Agregado** persistente terá um **Repositório**. De um modo geral, existe uma relação **1:1 entre um tipo agregado e um repositório.** <br>
+(Vernon, Vaughn. Implementing Domain-Driven Design)
+
+Em resumo, os repositórios são simples, pois eles representam coleções. Estas coleções de dados vão estar armazenadas no banco de dados e podem ser recuperadas no formato dos seus agregados.
 
 # Comandos utilizados
 - `composer install`
