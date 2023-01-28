@@ -2,10 +2,10 @@
 
 namespace Service;
 
-use DDD\Entity\Customer;
-use DDD\Entity\Item;
-use DDD\Entity\Order;
-use DDD\Service\OrderService;
+use DDD\Domain\Entity\Customer;
+use DDD\Domain\Entity\Item;
+use DDD\Domain\Entity\Order;
+use DDD\Domain\Service\OrderService;
 use PHPUnit\Framework\TestCase;
 
 class OrderServiceTest extends TestCase

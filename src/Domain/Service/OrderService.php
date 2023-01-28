@@ -1,10 +1,10 @@
 <?php
 
-namespace DDD\Service;
+namespace DDD\Domain\Service;
 
-use DDD\Entity\Customer;
-use DDD\Entity\Item;
-use DDD\Entity\Order;
+use DDD\Domain\Entity\Customer;
+use DDD\Domain\Entity\Item;
+use DDD\Domain\Entity\Order;
 use Error;
 use Ramsey\Uuid\Uuid;
 

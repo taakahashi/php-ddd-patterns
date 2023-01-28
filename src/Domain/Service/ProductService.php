@@ -1,8 +1,8 @@
 <?php
 
-namespace DDD\Service;
+namespace DDD\Domain\Service;
 
-use DDD\Entity\Product;
+use DDD\Domain\Entity\Product;
 
 final class ProductService
 {

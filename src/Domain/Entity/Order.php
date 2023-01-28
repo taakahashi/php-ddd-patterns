@@ -1,9 +1,8 @@
 <?php
 
-namespace DDD\Entity;
+namespace DDD\Domain\Entity;
 
 use InvalidArgumentException;
-
 use function array_reduce;
 
 final class Order

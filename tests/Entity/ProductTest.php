@@ -2,12 +2,12 @@
 
 namespace Entity;
 
-use DDD\Entity\Product;
+use DDD\Domain\Entity\Product;
 use InvalidArgumentException;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \DDD\Entity\Product
+ * @covers \DDD\Domain\Entity\Product
  */
 class ProductTest extends TestCase
 {

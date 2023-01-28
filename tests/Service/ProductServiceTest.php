@@ -2,8 +2,8 @@
 
 namespace Service;
 
-use DDD\Entity\Product;
-use DDD\Service\ProductService;
+use DDD\Domain\Entity\Product;
+use DDD\Domain\Service\ProductService;
 use PHPUnit\Framework\TestCase;
 
 class ProductServiceTest extends TestCase

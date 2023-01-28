@@ -2,13 +2,13 @@
 
 namespace Entity;
 
-use DDD\Entity\Address;
-use DDD\Entity\Customer;
+use DDD\Domain\Entity\Address;
+use DDD\Domain\Entity\Customer;
 use InvalidArgumentException;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \DDD\Entity\Customer
+ * @covers \DDD\Domain\Entity\Customer
  */
 class CustomerTest extends TestCase
 {

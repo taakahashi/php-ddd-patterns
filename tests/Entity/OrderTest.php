@@ -2,13 +2,13 @@
 
 namespace Entity;
 
-use DDD\Entity\Item;
-use DDD\Entity\Order;
+use DDD\Domain\Entity\Item;
+use DDD\Domain\Entity\Order;
 use InvalidArgumentException;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \DDD\Entity\Order
+ * @covers \DDD\Domain\Entity\Order
  */
 class OrderTest extends TestCase
 {

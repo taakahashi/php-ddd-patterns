@@ -2,10 +2,10 @@
 
 require 'vendor/autoload.php';
 
-use DDD\Entity\Address;
-use DDD\Entity\Customer;
-use DDD\Entity\Item;
-use DDD\Entity\Order;
+use DDD\Domain\Entity\Address;
+use DDD\Domain\Entity\Customer;
+use DDD\Domain\Entity\Item;
+use DDD\Domain\Entity\Order;
 
 $address = new Address('Rua', 1, 'Cidade', '1');
 $customer = new Customer('123', 'Taka', $address);

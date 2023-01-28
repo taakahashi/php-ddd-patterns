@@ -1,6 +1,6 @@
 <?php
 
-namespace DDD\Entity;
+namespace DDD\Domain\Entity;
 
 use InvalidArgumentException;
 

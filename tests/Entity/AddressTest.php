@@ -2,7 +2,7 @@
 
 namespace Entity;
 
-use DDD\Entity\Address;
+use DDD\Domain\Entity\Address;
 use InvalidArgumentException;
 use PHPUnit\Framework\TestCase;
 
