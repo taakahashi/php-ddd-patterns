@@ -126,3 +126,4 @@ Em resumo, os repositórios são simples, pois eles representam coleções. Esta
 
 
 - `./vendor/phpunit/phpunit/phpunit --generate-configuration`
+- `php vendor/bin/doctrine dbal:run-sql "SELECT * FROM product;"`

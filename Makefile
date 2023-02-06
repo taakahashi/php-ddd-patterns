@@ -13,7 +13,7 @@ down:
 stop:
 	docker-compose stop
 
-exec:
+enter:
 	docker-compose exec app bash
 
 test:

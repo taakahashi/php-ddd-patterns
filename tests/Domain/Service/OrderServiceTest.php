@@ -1,6 +1,6 @@
 <?php
 
-namespace Service;
+namespace Domain\Service;
 
 use DDD\Domain\Entity\Customer;
 use DDD\Domain\Entity\Item;

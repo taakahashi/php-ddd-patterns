@@ -1,6 +1,6 @@
 <?php
 
-namespace Service;
+namespace Domain\Service;
 
 use DDD\Domain\Entity\Product;
 use DDD\Domain\Service\ProductService;

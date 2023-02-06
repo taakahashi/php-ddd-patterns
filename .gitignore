@@ -3,3 +3,4 @@ vendor/
 report/
 
 .phpunit.result.cache
+db.sqlite
